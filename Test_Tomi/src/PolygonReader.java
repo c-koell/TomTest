@@ -23,9 +23,9 @@ public class PolygonReader implements ImportPolygons {
 				}
 				do {
 					String xCoordinate = valuesList.remove(0);
-					String yCoordinate = valuesList.remove(1);
+					String yCoordinate = valuesList.remove(0);
 					points.add(new Point(Integer.valueOf(xCoordinate), Integer.valueOf(yCoordinate)));
-				} while (valuesList.isEmpty());
+				} while (!valuesList.isEmpty());
 				Polygon polygon = new Polygon(points);
 				polygons.add(polygon);
 				zeile++;

@@ -24,10 +24,18 @@ public class SvgWriter implements ExportPolygons {
 					points.stream().forEach(p -> {
 						polygon.append(p.getX()).append(",").append(p.getY()).append(" ");
 					});
+					polygon.append("\" />");
 					Files.writeString(path, polygon, StandardOpenOption.APPEND);
 				} catch (Exception e) {
 				}
 			});
+			String end = """
+					Sorry, your browser does not support inline svg.
+					</svg>
+					</body>
+					</html>
+					""";
+			Files.writeString(path, end, StandardOpenOption.APPEND);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

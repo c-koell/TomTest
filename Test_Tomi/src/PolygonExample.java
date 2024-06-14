@@ -8,7 +8,7 @@ public class PolygonExample {
 			List<Polygon> list = polygonReader.importIt("daten.txt");
 			System.out.println(list);
 			SvgWriter svgWriter = new SvgWriter();
-			//svgWriter.exportIt(list, "dummy.html");
+			svgWriter.exportIt(list, "dummy.html");
 		} catch (ToFewPointsForPolygonException e) {
 			e.printStackTrace();
 		}
